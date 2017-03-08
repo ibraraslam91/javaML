@@ -12,14 +12,36 @@ import java.util.Map;
 /**
  * Created by ibrar on 3/7/17.
  */
+
+    /*
+    *   KNN k nearest neighbours algorithm Model Class
+    * */
+
 public class KNN {
 
+    // KNN classifier object
+
     Classifier knn;
+
+    /*
+    *   function for initializing KNN classifier
+    *
+    *   @param Dataset for training classifier
+    *
+    * */
 
     public void BuildClassifier(Dataset data){
         knn = new KNearestNeighbors(1);
         knn.buildClassifier(data);
     }
+
+
+    /*
+    *   function for finding accuracy of classifier
+    *
+    *   @param Dataset(test) for cross validation
+    * */
+
 
     public void getAccuracy(Dataset validationData){
 
@@ -46,6 +68,13 @@ public class KNN {
 
         System.out.println("Completion Time : "+(endtime-startTime)/1000 );
     }
+
+    /*
+    *   function for getting classifier prediction on one instance
+     *
+     *   @param Intsance of test dataset
+    *
+    * */
 
     public Object getPredicted(Instance instance){
         Object predicted = knn.classify(instance);

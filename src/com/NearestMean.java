@@ -14,13 +14,26 @@ import java.util.Map;
  */
 public class NearestMean {
 
-    Classifier kmean;
+    // KNN Means classifier object
 
+    Classifier kmean;
+ /*
+    *   function for initializing KNN Means
+    *
+    *   @param Dataset for training classifier
+    *
+    * */
 
     public void BuildClassifier(Dataset data){
         kmean = new NearestMeanClassifier();
         kmean.buildClassifier(data);
     }
+
+     /*
+    *   function for finding accuracy of classifier
+    *
+    *   @param Dataset(test) for cross validation
+    * */
 
     public void getAccuracy(Dataset validationData){
 
@@ -46,6 +59,13 @@ public class NearestMean {
         System.out.println("Completion Time : "+(endTime-startTime)/1000 );
     }
 
+
+    /*
+    *   function for getting classifier prediction on one instance
+     *
+     *   @param Intsance of test dataset
+    *
+    * */
 
     public Object getPredicted(Instance instance){
         Object predicted = kmean.classify(instance);

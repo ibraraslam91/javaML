@@ -12,7 +12,17 @@ import java.io.IOException;
 /**
  * Created by ibrar on 3/7/17.
  */
+
+
+        // helper class for file handling
 public class FileReader {
+
+
+        /* function to to load csv files
+
+        @param list of csv files name
+
+        */
 
     public Dataset LoadDataset(String[] filesName) throws IOException {
         Dataset data1 = FileHandler.loadDataset(new File(filesName[0]), 64, ",");
@@ -22,6 +32,13 @@ public class FileReader {
         data.addAll(data2.subList(0,data1.size()-1));
         return data;
     }
+
+
+    /*  function for mixing and spliting dataset
+
+        @param dataset and ratio for spliting dataset
+
+    */
 
     public be.abeel.util.Pair<Dataset, Dataset> getMixData(Dataset data,double ratio){
         Sampling s=Sampling.SubSampling;
